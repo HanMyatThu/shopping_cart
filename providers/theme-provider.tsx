@@ -3,6 +3,7 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { type ThemeProviderProps } from "next-themes/dist/types"
+import { CartProvider } from "@/contexts/cartProvider"
 
 interface CustomThemeProviderProps extends ThemeProviderProps {
   children: React.ReactNode
@@ -14,7 +15,9 @@ export function ThemeProvider({
 }: CustomThemeProviderProps) {
   return (
     <NextThemesProvider {...props}>
-      {children}
+      <CartProvider>
+        {children}
+      </CartProvider>
     </NextThemesProvider>
   )
 }

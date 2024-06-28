@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel"
 import { Item } from "./item"
 import { ItemInterface } from "@/interfaces/item-interface"
+import { useCartContext } from "@/contexts/cartProvider"
 
 interface ItemListCarouselProps {
   title: string
@@ -20,6 +21,14 @@ export const ItemListCarousel = ({
   title,
   items,
 }: ItemListCarouselProps) => {
+
+  const { addCartItem } = useCartContext()
+
+  const handleClick = (item: ItemInterface) => {
+    console.log(item,'item')
+    addCartItem(item)
+  }
+
   return (
     <div className="mt-12 px-12 py-4 bg-gray-100 dark:bg-[#020512] dark:opacity-90">
       <div className="max-w-fit">
@@ -37,12 +46,13 @@ export const ItemListCarousel = ({
                   className="md:basis-1/2 lg:basis-1/3"
                 >
                   <Item 
+                    item={item}
                     description={item.description}
                     imageUrl={item.imageUrl}
                     price={item.price}
                     rating={item.rating}
                     title={item.title}
-                    onClick={() => {}}
+                    onClick={handleClick}
                   />
                 </CarouselItem>
               ))}

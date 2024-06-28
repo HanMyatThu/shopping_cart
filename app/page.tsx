@@ -10,15 +10,16 @@ import { Navigation } from "@/components/navigations"
 const App = () => {
 
   const bestSelection = data.filter((data: ItemInterface) => data.bestSelection)
+  const otherProducts = data.filter((data: ItemInterface) => !data.bestSelection)
 
   return (
-    <CartProvider>
+    <div>
       <Navigation />
       <ItemListCarousel title="Best Selections" items={bestSelection}/>
 
       {/* All Products */}
       <ItemListCarousel title="All Products" items={data}/>
-    </CartProvider>
+    </div>
   )
 }
 

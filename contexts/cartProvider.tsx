@@ -32,7 +32,7 @@ export const CartProvider = ({
 
   const addCartItem = (item: ItemInterface) => {
     const isItemExisted = items.filter((i) => i.id === item.id)
-    if (isItemExisted) {
+    if (isItemExisted.length) {
       const updatedItems = items.map((i: CartItemProps) => i.id === item.id ? {...i, quantity: i.quantity += 1 }: {...i})
       setItems(updatedItems)
     } else {
@@ -43,6 +43,7 @@ export const CartProvider = ({
         quantity: 1,
       } satisfies CartItemProps
       const updatedItems = [...items, newItem]
+      console.log(updatedItems,'update')
       setItems(updatedItems)
     }
   }
@@ -69,6 +70,7 @@ export const CartProvider = ({
     updateCartItem,
   }
 
+  console.log(items,'items')
 
   return (
     <CartContext.Provider value={value}>
