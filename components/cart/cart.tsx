@@ -95,7 +95,7 @@ export const Cart = ({
           <Button
             onClick={() => checkout(items)}
             variant="default"
-            disabled={loading}
+            disabled={loading || !items.length}
           >
             Checkout
             {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
