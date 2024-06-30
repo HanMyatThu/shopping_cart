@@ -6,9 +6,14 @@ import { ThemeChanger } from "@/components/common/theme-changer"
 import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
 
-export const Navigation = () => {
+interface NavigationProps {
+  onClickCart: () => void
+}
+
+export const Navigation = ({
+  onClickCart
+}: NavigationProps) => {
   const { items } = useCartContext()
-  console.log(items,'items')
 
   return (
     <nav className="bg-cyan-900 border-cyan-200 dark:bg-gray-900">
@@ -29,6 +34,7 @@ export const Navigation = () => {
           ">
             <ThemeChanger />
             <Button
+              onClick={onClickCart}
               className="bg-cyan-900 border-cyan-950 hover:bg-cyan-800 hover:border-cyan-900"
               variant="ghost"
             >
