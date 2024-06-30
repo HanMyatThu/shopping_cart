@@ -11,6 +11,7 @@ import {
 import { Item } from "./item"
 import { ItemInterface } from "@/interfaces/item-interface"
 import { useCartContext } from "@/contexts/cartProvider"
+import { useToast } from "../ui/use-toast"
 
 interface ItemListCarouselProps {
   title: string
@@ -23,10 +24,15 @@ export const ItemListCarousel = ({
 }: ItemListCarouselProps) => {
 
   const { addCartItem } = useCartContext()
+  const { toast } = useToast()
 
   const handleClick = (item: ItemInterface) => {
-    console.log(item,'item')
     addCartItem(item)
+    toast({
+      variant: "default",
+      title: "Item Added",
+      description: `${item.title} is added to your cart.`,
+    })
   }
 
   return (
@@ -45,7 +51,7 @@ export const ItemListCarousel = ({
                   key={item.id}
                   className="md:basis-1/2 lg:basis-1/3"
                 >
-                  <Item 
+                  <Item
                     item={item}
                     description={item.description}
                     imageUrl={item.imageUrl}

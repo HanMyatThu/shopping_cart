@@ -4,6 +4,7 @@ import { ItemInterface } from "@/interfaces/item-interface";
 
 interface CartItemProps {
   id: string,
+  imageUrl: string,
   title: string,
   price: number,
   quantity: number,
@@ -13,8 +14,9 @@ interface CartContextProps {
   items: CartItemProps[],
   addCartItem: (id: ItemInterface) => void
   removeCartItem: (id: string) => void
-  updateCartItem: (id: string) => void
+  updateCartItem: (id: string, quantity: number) => void
   clearCartItem: () => void
+  getTotalPrice: () => void
 }
 
 interface CartProviderProps {
@@ -41,9 +43,9 @@ export const CartProvider = ({
         title: item.title,
         price: item.price,
         quantity: 1,
+        imageUrl: item.imageUrl
       } satisfies CartItemProps
       const updatedItems = [...items, newItem]
-      console.log(updatedItems,'update')
       setItems(updatedItems)
     }
   }
@@ -53,13 +55,19 @@ export const CartProvider = ({
     setItems(filteredItems)
   }
 
-  const updateCartItem = (id: string) => {
-    const updatedItems = items.map((i: CartItemProps) => i.id === id ? {...i, quantity: i.quantity += 1 }: {...i})
+  const updateCartItem = (id: string, quantity: number) => {
+    const updatedItems = items.map((i: CartItemProps) => i.id === id ? {...i, quantity }: {...i})
     setItems(updatedItems)
   }
 
   const clearCartItem = () => {
     setItems([])
+  }
+
+  const getTotalPrice = () => {
+    let totalPrice = 0
+    items.map((item) => totalPrice += Number(item.quantity * item.price))
+    return totalPrice;
   }
 
   const value = {
@@ -68,9 +76,8 @@ export const CartProvider = ({
     removeCartItem,
     clearCartItem,
     updateCartItem,
+    getTotalPrice,
   }
-
-  console.log(items,'items')
 
   return (
     <CartContext.Provider value={value}>

@@ -8,7 +8,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe1.jpg',
     bestSelection: true,
     available: true,
-    price: 99,
+    price: 42,
     rating: 5
   },
   {
@@ -18,7 +18,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe2.jpg',
     bestSelection: true,
     available: true,
-    price: 99,
+    price: 49,
     rating: 4
   },
   {
@@ -28,7 +28,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe3.jpg',
     bestSelection: false,
     available: true,
-    price: 99,
+    price: 25,
     rating: 3
   },
   {
@@ -38,7 +38,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe4.jpg',
     bestSelection: false,
     available: true,
-    price: 99,
+    price: 40,
     rating: 1
   },
   {
@@ -48,7 +48,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe5.jpg',
     bestSelection: false,
     available: true,
-    price: 99,
+    price: 33,
     rating: 0
   },
   {
@@ -58,7 +58,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe6.jpg',
     bestSelection: true,
     available: true,
-    price: 99,
+    price: 25,
     rating: 5
   },
   {
@@ -68,7 +68,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe7.jpg',
     bestSelection: false,
     available: true,
-    price: 99,
+    price: 28,
     rating: 3
   },
   {
@@ -78,7 +78,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe8.jpg',
     bestSelection: true,
     available: true,
-    price: 99,
+    price: 78,
     rating: 4
   },
   {
@@ -88,7 +88,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe9.jpg',
     bestSelection: false,
     available: true,
-    price: 99,
+    price: 64,
     rating: 4
   },
   {
@@ -98,7 +98,7 @@ export const data: ItemInterface[] = [
     imageUrl: '/images/shoe10.jpg',
     bestSelection: true,
     available: true,
-    price: 99,
+    price: 50,
     rating: 4
   }
 ]
